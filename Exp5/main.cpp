@@ -1,8 +1,10 @@
 #include"exp5.h"
+#include<vector>
 using namespace std;
-void input();
+void input(Point*);
 int main() {
-	input();
+	Point* p;
+	input(p);
 }
 Point::Point(int a=0, int b=0) {
 	x = a;
@@ -25,22 +27,19 @@ void Cylinder::show() {
 	Circle::show();
 	cout << "圆柱体高度：" << getH()<<endl;
 }
-void input() {
-	int x;
-	int y;
-	int r;
-	int h;
-	cout << "输入点坐标 x，y：";
-	cin >> x >> y;
-	Point p(x, y);
-	p.show();
-	cout << "输入圆心坐标 x，y和半径r：";
-	cin >> x >> y >> r;
-	Circle c(x,y,r);
-	c.show();
-	cout<< "输入圆心坐标 x，y，半径r和高h：";
-	cin >> x >> y >> r >> h;
-	Cylinder cy(x, y, r, h);
-	cy.show();
-	
+void input(Point* p) {
+	int value;
+	vector<int> a;
+	cin >> value;
+	a.push_back(value);
+	while (cin.get() != '\n') {
+		cin >> value;
+		a.push_back(value);
+	}
+	if (a.size() == 2)
+		p = new Point(a[0], a[1]);
+	else if (a.size() == 3)
+		p = new Circle(a[0], a[1], a[2]);
+	else if (a.size() == 4)
+		p = new Cylinder(a[0], a[1], a[2], a[3]);
 }
