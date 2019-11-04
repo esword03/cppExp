@@ -1,3 +1,4 @@
+#include<iostream>
 class Point {
 public:
 	Point(int,int);
@@ -10,15 +11,18 @@ private:
 };
 class Circle :public Point {
 public:
-	virtual void show();
+	Circle(int,int,int);
+	void show();
 	int getarea() {return getX()*getY(); }
+	int getradius() { return radius; }
 private:
 	int radius;
 };
 
 class Cylinder :public Circle {
 public:
-	virtual void show();
+	Cylinder(int, int, int, int);
+	void show();
 	int getH() { return height; }
 	int getV() { return height*getarea(); }
 private:
