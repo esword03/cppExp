@@ -2,7 +2,7 @@
 class Point {
 public:
     Point(int,int);
-
+	Point();
     virtual void show();
     int getX() { return x; }
     int getY() { return y; }
@@ -14,7 +14,7 @@ class Circle :public Point {
 public:
     Circle(int,int,int);
     virtual void show();
-    int getarea() {return 3.14*(radius*radius); }
+    double getarea() {return 3.14*(radius*radius); }
     int getradius() { return radius; }
 private:
     int radius;
@@ -25,7 +25,7 @@ public:
     Cylinder(int, int, int, int);
     virtual void show();
     int getH() { return height; }
-    int getV() { return height*getarea(); }
+    double getV() { return height*getarea(); }
 private:
     int height;
 };

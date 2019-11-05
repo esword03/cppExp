@@ -1,48 +1,95 @@
 #include"exp5.h"
+
 #include<vector>
+
 using namespace std;
+
 void input(Point*);
+
 int main() {
-    Point* p;
-    input(p);
+
+	Point* p=NULL;
+
+	input(p);
+
 }
-Point::Point(int a, int b) {
-    x = a;
-    y = b;
+
+Point::Point(int a=0, int b=0) {
+
+	x = a;
+
+	y = b;
+
 }
-Circle::Circle(int a,int b,int c):Point(a,b) {
-    radius = c;
+
+Circle::Circle(int a, int b, int c=0) :Point(a, b) {
+
+	radius = c;
+
 }
-Cylinder::Cylinder(int a, int b, int c, int d) : Circle(a, b, c) {
-    height = d;
+
+Cylinder::Cylinder(int a, int b, int c, int d=0) : Circle(a, b, c) {
+
+	height = d;
+
 }
+
 void Point::show() {
-    cout << "(" << getX() << "," << getY() <<")"<< endl;
+
+	cout << "(" << getX() << "," << getY() << ")" << endl;
+
 }
+
 void Circle::show() {
-    cout << "åœ†å¿ƒåæ ‡ï¼š"; Point::show();
-    cout << "åœ†åŠå¾„ï¼š" << getradius()<<endl
-         <<"åœ†é¢ç§¯ï¼š"<<getarea()<<endl;
+
+	cout << "Ô²ÐÄ×ø±ê£º"; Point::show();
+
+	cout << "Ô²°ë¾¶£º" << getradius() << endl
+
+		<< "Ô²Ãæ»ý£º" << getarea() << endl;
+
 }
+
 void Cylinder::show() {
-    Circle::show();
-    cout << "åœ†æŸ±ä½“é«˜åº¦ï¼š" << getH()<<endl
-         <<"åœ†ä½“ç§¯ï¼š"<<getV()<<endl;
+
+	Circle::show();
+
+	cout << "Ô²ÖùÌå¸ß¶È£º" << getH() << endl
+
+		<< "Ô²Ìå»ý£º" << getV() << endl;
+
 }
+
 void input(Point* p) {
-    int value;
-    vector<int> a;
-    cin >> value;
-    a.push_back(value);
-    while (cin.get() != '\n') {
-        cin >> value;
-        a.push_back(value);
-    }
-    if (a.size() == 2)
-        p = new Point(a[0], a[1]);
-    else if (a.size() == 3)
-        p = new Circle(a[0], a[1], a[2]);
-    else if (a.size() == 4)
-        p = new Cylinder(a[0], a[1], a[2], a[3]);
-    p->show();
+
+	int value;
+
+	vector<int> a;
+
+	cin >> value;
+
+	a.push_back(value);
+
+	while (cin.get() != '\n') {
+
+		cin >> value;
+
+		a.push_back(value);
+
+	}
+
+	if (a.size() == 2)
+
+		p = new Point(a[0], a[1]);
+
+	else if (a.size() == 3)
+
+		p = new Circle(a[0], a[1], a[2]);
+
+	else if (a.size() == 4)
+
+		p = new Cylinder(a[0], a[1], a[2], a[3]);
+
+	p->show();
+
 }
