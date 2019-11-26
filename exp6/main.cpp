@@ -1,10 +1,13 @@
 #include"student.h"
 int main() {
 	student s;
-	s.input();
-	cout << s;
+	while (true) {
+		s.input();
+		cout << s;
+	}
 }
 void student::input() {
+
 	cout << "输入姓名 成绩：";
 	cin >> name >> score;
 }
@@ -21,5 +24,5 @@ ostream& operator<<(ostream& out, const student& stu) {
 	else
 		level = "不及格";
 	return out << "姓名 " << stu.name
-				<< " 获得 " << level;
+				<< " 获得 " << level<<endl;
 }

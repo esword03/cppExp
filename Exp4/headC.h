@@ -7,8 +7,8 @@ public:
 	//person();
 	person(string  , int  );
 	void print();
-	string getName();
-	int getId();
+	string getName() { return name; }
+	int getId() { return id; }
 private:
 	string name;
 	int id;
@@ -17,8 +17,8 @@ class student :public person {
 public:
 	//student();
 	student(string  , int ,string,int );
-	string getSquad();
-	int getScore();
+	string getSquad() { return squad; }
+	int getScore() { return score; }
 	void print();
 private:
 	string squad;
@@ -26,10 +26,10 @@ private:
 };
 class teacher :public person {
 public :
-	//teacher();
+	//teacher() {};
 	teacher(string , int ,string ,string );
-	string getLevel();
-	string getPosition();
+	string getLevel() { return level; }
+	string getPosition() { return position; }
 	void print();
 private:
 	string level;
@@ -37,8 +37,12 @@ private:
 };
 class course {
 public:
-	course(string, string, int, int);
+	course(teacher,string, string, int );
 	void print();
+	string getCno() { return Cno; }
+	string getCname() { return Cname; }
+	int getChour() { return Chour; }
+	string getTeacher() { return Tno.getName(); }
 private:
 	string Cno;
 	string Cname;
